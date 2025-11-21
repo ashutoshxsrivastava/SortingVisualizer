@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sorting Visualizer</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="container" role="main">
+
+    <!-- LEFT: phone-like controls card -->
+    <aside class="card left-card phone-card" id="controlsCard" aria-label="Controls">
+        <div class="title">Sorting Visualizer</div>
+
+        <div class="section">
+            <div class="lbl">Array values</div>
+            <div id="arrayInputs" class="array-inputs" aria-live="polite"></div>
+            <div class="row">
+                <button id="addNumber">Add Element</button>
+                <button id="randomArrayBtn">Generate Array</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="lbl">Algorithm</div>
+            <select id="algoSelect" aria-label="Select algorithm">
+                <option value="bubble">Bubble Sort</option>
+                <option value="selection">Selection Sort</option>
+            </select>
+        </div>
+
+        <div class="section">
+            <div class="lbl">Speed</div>
+            <input id="speedRange" type="range" min="80" max="800" value="300" />
+        </div>
+
+        <!-- Buttons: first row Start/Stop, second row Pause/Resume/Reset -->
+        <div class="section">
+            <div class="button-row">
+                <button id="startBtn" class="start">Start</button>
+                <button id="stopBtn" class="stop">Stop</button>
+            </div>
+            <div class="button-row">
+                <button id="pauseBtn" class="pause">Pause</button>
+                <button id="resetBtn" class="reset">Reset</button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- RIGHT: visualiser and message -->
+    <main class="right-col" aria-label="Visualizer area">
+        <section class="card top-card" aria-label="Visualizer card">
+            <div class="visual-inner">
+                <div id="arrayContainer" class="array-container" aria-live="polite"></div>
+            </div>
+        </section>
+
+        <section class="card bottom-card" aria-label="Message card">
+            <div id="sortedMessage" class="message-area"></div>
+        </section>
+    </main>
+
+</div>
+
+<!-- modal -->
+<div id="sizeModal" class="modal" aria-hidden="true">
+    <div class="modal-card">
+        <h3 style="margin:0 0 8px 0; color:#fff;">Generate random array</h3>
+        <input id="arraySizeInput" type="number" min="1" max="50" placeholder="size (1-50)" style="width:90%; padding:8px; border-radius:8px; border:1px solid rgba(255,255,255,0.03); background:rgba(0,0,0,0.18); color:#fff;" />
+        <div style="margin-top:12px; display:flex; gap:8px; justify-content:center;">
+            <button id="confirmSizeBtn">Generate</button>
+            <button id="cancelSizeBtn" class="muted">Cancel</button>
+        </div>
+    </div>
+    <!--<footer id="pageFooter">
+        <p>© 2025 <a href="https://www.linkedin.com/in/ashutoshxsrivastava" target="_blank" style="color: #fff; text-decoration: underline;">Ashutosh Srivastava</a> | All rights reserved</p>
+    </footer>-->
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
